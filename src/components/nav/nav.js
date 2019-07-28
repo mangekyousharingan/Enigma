@@ -1,9 +1,9 @@
 import React from 'react';
-import locked from './locked.png'
+import locked from '../navbar/locked.png'
 
 const NavBar = () => {
   return (
-    <div className="di">
+    <div>
       <div className="fl w-third">
         <img src={locked} className="grow pa3 pa4-ns" alt="avatar"/>
       </div>

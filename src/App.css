@@ -6,3 +6,8 @@
   right: 0;
   z-index: -1;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
