@@ -20,7 +20,7 @@ const JumbotronPage = ({title, titleText, buttonText, buttonIcon, label}) => {
     <MDBContainer className="mt-5 text-center bg-transparent">
       <MDBRow>
         <MDBCol>
-          <MDBJumbotron>
+          <MDBJumbotron className="white-90">
             <MDBCardBody>
               <MDBCardTitle className="h2 rgba-mdb-color-light red-text">{title}</MDBCardTitle>
               <p className="blue-text my-4 font-weight-bold">

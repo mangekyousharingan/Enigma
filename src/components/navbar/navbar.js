@@ -1,7 +1,16 @@
 import React from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBNavItem,
+  MDBNavLink,
+  MDBIcon,
+  MDBBtn
+} from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import locked from './locked.png'
 import ikey from './ikey.png'
 import './navbar.css'
 
@@ -25,7 +34,7 @@ class FixedNavbarExample extends React.Component {
       <div className="navigation">
         <Router>
           <header>
-            <MDBNavbar dark expand="md" scrolling fixed="top">
+            <MDBNavbar className="brown darken-2" expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
                 <img className="grow" src={ikey} alt="avatar"/>
               </MDBNavbarBrand>
@@ -33,16 +42,16 @@ class FixedNavbarExample extends React.Component {
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav className="justify-content-center">
                   <MDBNavItem>
-                    <MDBNavLink to="#">Home</MDBNavLink>
+                    <MDBBtn className="orange lighten-1 black-text">Home</MDBBtn>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#">Encoder</MDBNavLink>
+                    <MDBBtn className="orange lighten-1 black-text">Encoder</MDBBtn>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#">Decoder</MDBNavLink>
+                    <MDBBtn className="orange lighten-1 black-text">Decoder</MDBBtn>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#">About</MDBNavLink>
+                    <MDBBtn className="orange lighten-1 black-text">About</MDBBtn>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>

@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import Particles from 'react-particles-js';
-import particlesConfig from './particles'
 import FixedNavbarExample from "./components/navbar/navbar";
 import Home from "./components/home/home";
 import JumbotronPage from "./components/input/Input";
+import Footer from "./components/footer/footer"
 
 function App() {
   return (
-    <div className="App">
-      <Particles className='particles' params={particlesConfig}/>
+    <div className="orange lighten-5">
       <FixedNavbarExample></FixedNavbarExample>
       <Home/>
       <JumbotronPage
@@ -26,6 +24,7 @@ function App() {
         buttonIcon="unlock"
         label="Text to decode">
       </JumbotronPage>
+      <Footer/>
     </div>
   );
 }
