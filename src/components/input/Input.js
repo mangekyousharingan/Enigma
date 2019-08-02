@@ -1,42 +1,66 @@
-// import React from "react";
-// import { MDBInput } from "mdbreact";
-//
-// const InputForm = () => {
-//   return (
-//     <div className="justify-content-center">
-//       <p>Text to encode:</p>
-//       <MDBInput type="textarea" label="Example label" outline/>
-//     </div>
-//   );
-// };
-//
-// export default InputForm;
-import React from "react";
+import React, { Component } from "react";
+import axios from 'axios';
 import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBCardBody, MDBInput,  MDBCardTitle } from "mdbreact";
 import './input.css'
 
-const JumbotronPage = ({title, titleText, buttonText, buttonIcon, label}) => {
-  return (
-    <MDBContainer className="mt-5 text-center bg-transparent">
-      <MDBRow>
-        <MDBCol>
-          <MDBJumbotron className="white-90">
-            <MDBCardBody>
-              <MDBCardTitle className="h2 rgba-mdb-color-light red-text">{title}</MDBCardTitle>
-              <p className="blue-text my-4 font-weight-bold">
-                {titleText}
-              </p>
-              <MDBInput type="textarea" rows="5" label={label} outline/>
-              <hr className="my-4" />
-              <div className="pt-2">
-                <MDBBtn color="primary" className="waves-effect">{buttonText} <MDBIcon icon={buttonIcon}/></MDBBtn>
-              </div>
-            </MDBCardBody>
-          </MDBJumbotron>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  )
-};
+class InputElement extends Component {
+  constructor({title, titleText, buttonText, buttonIcon, label}) {
+    super()
+    this.state = {
+      value: '',
+      data: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.title = title;
+    this.titleText = titleText;
+    this.buttonText = buttonText;
+    this.buttonIcon = buttonIcon;
+    this.label = label;
+  }
 
-export default JumbotronPage;
+  handleChange(event) {
+    this.setState({value: event.target.value});
+    console.log(this.state.value)
+  }
+
+  async handleSubmit(event) {
+    console.log(this.state.value);
+    const instance = axios.create({
+
+      headers: {'Content-Type': 'application/json', 'dupa':'ok'}
+    });
+
+    try {
+      const response = await instance.put('/v1/encode', {'text': this.state.value})
+    } catch {}
+
+  }
+
+  render() {
+    return (
+      <MDBContainer className="mt-5 text-center bg-transparent">
+        <MDBRow>
+          <MDBCol>
+            <MDBJumbotron className="white-90">
+              <MDBCardBody>
+                <MDBCardTitle className="h2 rgba-mdb-color-light red-text">{this.title}</MDBCardTitle>
+                <p className="blue-text my-4 font-weight-bold">
+                  {this.titleText}
+                </p>
+                <MDBInput type="textarea" rows="5" label={this.label} value={this.state.value} onChange={this.handleChange} outline/>
+                <hr className="my-4" />
+                <div className="pt-2">
+                  <MDBBtn color="primary" className="waves-effect" onClick={this.handleSubmit}>{this.buttonText} <MDBIcon icon={this.buttonIcon}/></MDBBtn>
+                </div>
+              </MDBCardBody>
+            </MDBJumbotron>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    )
+  }
+}
+
+
+export default InputElement;

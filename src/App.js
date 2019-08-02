@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import FixedNavbarExample from "./components/navbar/navbar";
 import Home from "./components/home/home";
-import JumbotronPage from "./components/input/Input";
+import InputElement from "./components/input/Input";
 import Footer from "./components/footer/footer"
 
 function App() {
@@ -10,20 +10,20 @@ function App() {
     <div className="orange lighten-5">
       <FixedNavbarExample></FixedNavbarExample>
       <Home/>
-      <JumbotronPage
+      <InputElement
         title="ENCODER"
         buttonText="Encode"
         titleText="Write some text and press button"
         buttonIcon="lock"
         label="Text to encode">
-      </JumbotronPage>
-      <JumbotronPage
+      </InputElement>
+      <InputElement
         title="DECODER"
         buttonText="Decode"
         titleText="Paste encoded text and press button"
         buttonIcon="unlock"
         label="Text to decode">
-      </JumbotronPage>
+      </InputElement>
       <Footer/>
     </div>
   );
